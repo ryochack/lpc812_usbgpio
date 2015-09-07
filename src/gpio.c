@@ -3,6 +3,9 @@
  *
  *  Created on: Sep 7, 2015
  *      Author: ryochack
+ *
+ * @note
+ * MIT License
  */
 
 #if defined (__USE_LPCOPEN)

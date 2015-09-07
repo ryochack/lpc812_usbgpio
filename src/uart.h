@@ -3,6 +3,9 @@
  *
  *  Created on: Aug 24, 2015
  *      Author: ryochack
+ *
+ * @note
+ * MIT License
  */
 
 #ifndef UART_H_

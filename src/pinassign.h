@@ -3,6 +3,9 @@
  *
  *  Created on: Sep 5, 2015
  *      Author: ryochack
+ *
+ * @note
+ * MIT License
  */
 
 #ifndef DEF_H_

@@ -3,6 +3,9 @@
  *
  *  Created on: Sep 6, 2015
  *      Author: ryochack
+ *
+ * @note
+ * MIT License
  */
 
 #ifndef ASCII_H_

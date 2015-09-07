@@ -5,6 +5,7 @@
  Version     :
  Copyright   : $(copyright)
  Description : main definition
+ License     : MIT License
 ===============================================================================
 */
 
