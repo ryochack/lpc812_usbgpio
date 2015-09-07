@@ -21,7 +21,6 @@ typedef struct shell_t {
 	char prompt[SHELL_PROMPT_LEN];
 	shell_get_char_t   get_char;
 	shell_put_char_t   put_char;
-	shell_write_line_t write_line;
 	int num_of_commands;
 	command_t command[SHELL_MAX_COMMANDS];
 } shell_t;
@@ -47,7 +46,7 @@ static int execute_command(int argc, const char **argv);
 static int builtincommand_help(int argc, const char **argv);
 
 
-void shell_init(shell_get_char_t func_get, shell_put_char_t func_put, shell_write_line_t func_write) {
+void shell_init(shell_get_char_t func_get, shell_put_char_t func_put) {
 	shell_t *sh = &shell_instance;
 	memset(sh, 0, sizeof(shell_t));
 
@@ -56,9 +55,6 @@ void shell_init(shell_get_char_t func_get, shell_put_char_t func_put, shell_writ
 	}
 	if (func_put) {
 		sh->put_char = func_put;
-	}
-	if (func_write) {
-		sh->write_line = func_write;
 	}
 	shell_add_command("help", builtincommand_help);
 }
@@ -95,8 +91,11 @@ void shell_set_prompt(const char* prompt) {
 
 static size_t write_line(const char *msg) {
 	shell_t *sh = &shell_instance;
-	if (sh->write_line) {
-		return sh->write_line(msg);
+	const char *p = msg;
+	if (sh->put_char) {
+		while(*p) {
+			sh->put_char(*(p++));
+		}
 	}
 	return 0;
 }

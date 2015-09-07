@@ -25,12 +25,10 @@ extern "C" {
 typedef int (*shell_command_t)(int argc, const char **argv);
 typedef char (*shell_get_char_t)(void);
 typedef void (*shell_put_char_t)(char c);
-typedef size_t (*shell_write_line_t)(const char *msg);
 
 void shell_init(
 		shell_get_char_t   func_get,
-		shell_put_char_t   func_put,
-		shell_write_line_t func_write
+		shell_put_char_t   func_put
 		);
 bool shell_add_command(const char* command, shell_command_t func_command);
 void shell_set_prompt(const char* prompt);

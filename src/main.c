@@ -36,7 +36,7 @@ int main(void) {
 	IOCON_Init();
 	uart_init();
 	uart_setup();
-	shell_init(uart_get_char, uart_put_char, uart_put_line);
+	shell_init(uart_get_char, uart_put_char);
 	gpio_init();
 	if (!shell_add_command("version", command_version)) {
 		uart_put_line("shell_add_command(version) error\n");
